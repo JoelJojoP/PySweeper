@@ -1,13 +1,11 @@
-<center>
-
+<p align="center" width="100%">
 <img src="Assets/logo.png" width=100px alt="Logo">
-<h1>PySweeper</h1>
-
-</center>
-
----
+<h1 align="center">PySweeper</h1>
+</p>
 
 A python bot that can solve minesweeper.
+
+https://github.com/user-attachments/assets/330cb528-d574-4dcc-bb31-73e76ebf4e02
 
 ## Installation
 
