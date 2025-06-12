@@ -63,25 +63,27 @@ try:
 except:
     pass
 
-# Allow time to switch to the Minesweeper window
-print("\nTo save calibration data press 's'")
-print("To exit without saving press 'q'")
-input("Press enter and switch to the Minesweeper window within 5 seconds...\n")
-time.sleep(5)
-
-# Take a screenshot of the Minesweeper game
-screenshot = pyautogui.screenshot()
-
-cv2.namedWindow("Calibration", cv2.WINDOW_NORMAL)
-cv2.createTrackbar("Rows", "Calibration", rows, 20, change_rows)
-cv2.createTrackbar("Columnss", "Calibration", cols, 45, change_cols)
-cv2.createTrackbar("Start X", "Calibration", start_x, 500, change_start_x)
-cv2.createTrackbar("Start Y", "Calibration", start_y, 500, change_start_y)
-cv2.createTrackbar("Face X", "Calibration", face[0], 1000, change_face_x)
-cv2.createTrackbar("Face Y", "Calibration", face[1], 1000, change_face_y)
-cv2.createTrackbar("Mines", "Calibration", mines, 100, change_mines)
+print("\n- Use the sliders to adjust the calibration values.")
+print("- Align the green pixels to the top-left corner of the tiles.")
+print("- Align the red pixel to the end of the smile on the face icon.")
+print("- To save and exit calibration data press 's'")
+print("- To exit without saving press 'q'")
 
 try:
+    input("\nPress enter and switch to the Minesweeper window within 5 seconds...\n")
+    time.sleep(5)
+
+    screenshot = pyautogui.screenshot()
+
+    cv2.namedWindow("Calibration", cv2.WINDOW_NORMAL)
+    cv2.createTrackbar("Rows", "Calibration", rows, 20, change_rows)
+    cv2.createTrackbar("Columns", "Calibration", cols, 45, change_cols)
+    cv2.createTrackbar("Start X", "Calibration", start_x, 500, change_start_x)
+    cv2.createTrackbar("Start Y", "Calibration", start_y, 500, change_start_y)
+    cv2.createTrackbar("Face X", "Calibration", face[0], 1000, change_face_x)
+    cv2.createTrackbar("Face Y", "Calibration", face[1], 1000, change_face_y)
+    cv2.createTrackbar("Mines", "Calibration", mines, 100, change_mines)
+
     while True:
         image = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
         for i in range(rows):
